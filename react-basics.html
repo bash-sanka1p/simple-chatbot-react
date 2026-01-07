@@ -47,8 +47,24 @@
             <p>Product Cost: ${productCost}</p>
         )
 
+        //task 1f
+        const shippingCost = 5;
+        const totalCost = productCost + shippingCost;
+
+        const task1f = (
+            <div>
+                <p>Product cost: ${productCost}</p>
+                <p>Shipping cost: ${shippingCost}</p>
+                <p>Total cost: ${totalCost}</p>
+                <button>Place your order</button>
+            </div>
+        );
+
+        
+
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(task1e);
+        ReactDOM.createRoot(container).render(task1f);
+
     </script>
 </body>
 
