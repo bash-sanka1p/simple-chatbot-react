@@ -7,6 +7,7 @@
 
 <body>
     <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
@@ -60,8 +61,8 @@
             </div>
         );
 
-        
-
+        //task 1g
+        console.log(dayjs().format('MMM D'))
         const container = document.querySelector('.js-container');
         ReactDOM.createRoot(container).render(task1f);
 
