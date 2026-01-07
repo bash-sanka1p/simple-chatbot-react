@@ -16,7 +16,7 @@
         const button = <button>hello</button>;
         const paragraph = <p>paragraph of text</p>;
 
-        const div = (
+        const main = (
             <div>
                 <button>hello</button>
                 <p>paragraph of text {2 + 2}</p>
@@ -24,14 +24,25 @@
             </div>
         );
 
-        const task1 = (
-            <>
+        const task1ab = (
+            <div>
                 <button>Good Job!</button>
-            </>
+                <p>My Name Is Sankalp</p>
+            </div>
         )
 
+        const task1c = (
+            <div>
+                <p>Cotton Socks</p>
+                <p>Price: $10</p>
+                <button>Add to cart</button>
+            </div>
+        )
+
+        
+
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(task1);
+        ReactDOM.createRoot(container).render(task1c);
     </script>
 </body>
 
