@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simple Chatbot</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+    function ChatInput() {
+      return (
+        <>
+          <input
+            placeholder="Send a message to chatbot"
+            size="80"
+          />
+          <button>Send</button>
+        </>
+      );
+    }
+
+    // function ChatMessage(props) {
+    function ChatMessage({ message, sender }) {
+      // const message = props.message;
+      // const sender = props.sender;
+
+      // const { message, sender } = props; //destructuring.. Think of it as tuple unpackingin python
+
+      /*
+      if (sender === "bot") {
+        return (
+          <div>
+            <img src="robot.png" width="50" />
+            {message}
+          </div>
+        );
+      }
+    */
+      return (
+        <div>
+          {sender === "bot" && (
+            <img src="robot.png" width="50" />
+          )}
+          {message}
+          {sender === "user" && (
+            <img src="user.png" width="50" />
+          )}
+        </div>
+      );
+    }
+    function App() {
+      return (
+        <>
+          <ChatInput />
+          <ChatMessage
+            message="hello chatbot"
+            sender="user"
+          />
+          <ChatMessage
+            message="Hello! How can i help you?"
+            sender="bot"
+          />
+          <ChatMessage
+            message="Can you tell me today's date?"
+            sender="user"
+          />
+          <ChatMessage
+            message="Yes is x janunary"
+            sender="bot"
+          />
+        </>
+      );
+    }
+    // const app = (
+
+    // );
+
+    const container = document.querySelector(".js-container");
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+
+</html>
