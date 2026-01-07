@@ -69,8 +69,13 @@
             <p>Today is {dayjs().format('MMM D')}</p>
         )
 
+        const task1i = (
+            <p>Current Time {dayjs().format('HH:mm:ss')}</p>
+        )
+
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(task1h);
+        ReactDOM.createRoot(container).render(task1i);
+        
 
     </script>
 </body>
