@@ -75,7 +75,14 @@
 
         const container = document.querySelector('.js-container');
         ReactDOM.createRoot(container).render(task1i);
-        
+        //task 1j
+        const root = ReactDOM.createRoot(container);
+        const task1j = () => {
+            const currentTime = dayjs().format('HH:mm:ss');
+            root.render(<p> Current Time: {currentTime}</p>);
+        }
+        setInterval(task1j, 1000);
+
 
     </script>
 </body>
