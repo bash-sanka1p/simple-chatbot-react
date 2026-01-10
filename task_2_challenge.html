@@ -16,12 +16,22 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
+
+        function ProductDetails({ productName, price }) {
+            return (
+                <>
+                    <p>{productName}</p>
+                    <p>Price ${price}</p>
+                    <button>Add to Cart</button>
+                </>
+            );
+        }
         function App() {
             return (
                 <>
-                    <p>Cotton Socks</p>
-                    <p>Price $10.90</p>
-                    <button>Add to Cart</button>
+                    <ProductDetails productName="Cotton Socks" price="10.90" />
+                    <ProductDetails productName="Tennis balls" price="6.00" />
+                    <ProductDetails productName="Plain T-Shirt" price="7.99" />
                 </>
             );
         }
