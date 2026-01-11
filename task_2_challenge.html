@@ -18,18 +18,18 @@
     <script type="text/babel">
 
         function ProductDetails({ productName, price, discountPrice }) {
+            const displayPrice =
+                discountPrice ?
+                    <>
+                        <del><p>Price ${price}</p></del>
+                        <p>Discount price: ${discountPrice}</p>
+                    </>
+                    :
+                    <p>Price ${price}</p>
             return (
                 <>
                     <p>{productName}</p>
-                    {!discountPrice && (
-                        <p>Price ${price}</p>
-                    )}
-                    {discountPrice && (
-                        <>
-                            <del><p>Price ${price}</p></del>
-                            <p>Discount price: ${discountPrice}</p>
-                        </>
-                    )}
+                    {displayPrice}
                     <button>Add to Cart</button>
                 </>
             );
