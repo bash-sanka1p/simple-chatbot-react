@@ -55,19 +55,23 @@
     function App() {
       const chatMessages = [{
         message: 'hello chatbot',
-        sender: 'user'
+        sender: 'user',
+        id: 'id1'
       },
       {
         message: 'Hello! How can I help you?',
-        sender: 'bot'
+        sender: 'bot',
+        id: 'id2'
       },
       {
         message: 'Can you tell me todays date?',
-        sender: 'user'
+        sender: 'user',
+        id: 'id3'
       },
       {
         message: 'Yes. Its x january?',
-        sender: 'bot'
+        sender: 'bot',
+        id: 'id4'
       }];
 
       console.log(chatMessages);
@@ -80,6 +84,7 @@
               <ChatMessage
                 message={chatMessage.message}
                 sender={chatMessage.sender}
+                key={chatMessage.id}
               />
             )
           })
