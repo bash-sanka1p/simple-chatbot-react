@@ -74,10 +74,17 @@
         message: 'Yes. Its x january?',
         sender: 'bot',
         id: 'id4'
-      }];
+      }
+
+      ];
 
       function sendMessage() {
-        console.log('Send Message')
+        chatMessages.push({
+          message: 'Test',
+          sender: 'user',
+          id: crypto.randomUUID()
+        });
+        console.log(chatMessages)
       }
       return (
         <>
