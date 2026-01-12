@@ -55,7 +55,7 @@
     }
 
     function ChatMessages() {
-      const chatMessages = [{
+      const array = React.useState([{
         message: 'hello chatbot',
         sender: 'user',
         id: 'id1'
@@ -75,16 +75,20 @@
         sender: 'bot',
         id: 'id4'
       }
-
-      ];
+      ]);
+      const chatMessages = array[0]; //current data
+      const setChatMessages = array[1]; // returns a function which will be used to update the data aka 'updater functions'
 
       function sendMessage() {
-        chatMessages.push({
-          message: 'Test',
-          sender: 'user',
-          id: crypto.randomUUID()
-        });
-        console.log(chatMessages)
+        setChatMessages([
+          ...chatMessages, // spread operation: created a copy of the data
+          {
+            message: 'test',
+            sender: 'user',
+            id: crypto.randomUUID()
+          }
+        ]
+        );
       }
       return (
         <>
