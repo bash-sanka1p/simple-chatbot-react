@@ -12,14 +12,35 @@
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">
 
-    function ChatInput() {
+    function ChatInput({ chatMessages, setChatMessages }) {
+      const [inputText, setInputText] = React.useState('');
+
+      function saveInputText(event) {
+        // console.log(event.target.value)
+        setInputText(event.target.value);
+      };
+
+      function sendMessage() {
+        setChatMessages([
+          ...chatMessages, // spread operation: created a copy of the data
+          {
+            message: inputText,
+            sender: 'user',
+            id: crypto.randomUUID()
+          }
+        ]
+        );
+
+      }
+
       return (
         <>
           <input
             placeholder="Send a message to chatbot"
             size="80"
+            onChange={saveInputText}
           />
-          <button>Send</button>
+          <button onClick={sendMessage}>Send</button>
         </>
       );
     }
@@ -54,7 +75,25 @@
       );
     }
 
-    function ChatMessages() {
+    function ChatMessages({ chatMessages }) {
+
+      return (
+        <>
+          {chatMessages.map((chatMessage) => {
+            return (
+              <ChatMessage
+                message={chatMessage.message}
+                sender={chatMessage.sender}
+                key={chatMessage.id}
+              />
+            )
+          })
+          }
+        </>
+      );
+    }
+
+    function App() {
       // const array = React.useState([{
       const [chatMessages, setChatMessages] = React.useState([{
         message: 'hello chatbot',
@@ -82,39 +121,15 @@
       // const [chatMessages, setChatMessages] = array;  // array destructuring // shortcut for above
 
 
-      function sendMessage() {
-        setChatMessages([
-          ...chatMessages, // spread operation: created a copy of the data
-          {
-            message: 'test',
-            sender: 'user',
-            id: crypto.randomUUID()
-          }
-        ]
-        );
-      }
       return (
         <>
-          <button onClick={sendMessage}>Send Message</button>
-          {chatMessages.map((chatMessage) => {
-            return (
-              <ChatMessage
-                message={chatMessage.message}
-                sender={chatMessage.sender}
-                key={chatMessage.id}
-              />
-            )
-          })
-          }
-        </>
-      );
-    }
-
-    function App() {
-      return (
-        <>
-          <ChatInput />
-          <ChatMessages />
+          <ChatInput
+            chatMessages={chatMessages}
+            setChatMessages={setChatMessages}
+          />
+          <ChatMessages
+            chatMessages={chatMessages}
+          />
         </>
       );
     }
