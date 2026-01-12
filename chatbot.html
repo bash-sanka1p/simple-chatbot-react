@@ -9,6 +9,9 @@
   <div class="js-container"></div>
   <script src="https://unpkg.com/supersimpledev/react.js"></script>
   <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">
 
@@ -21,7 +24,7 @@
       };
 
       function sendMessage() {
-        setChatMessages([
+        const newChatMessages = [
           ...chatMessages, // spread operation: created a copy of the data
           {
             message: inputText,
@@ -29,8 +32,18 @@
             id: crypto.randomUUID()
           }
         ]
-        );
         setInputText('');
+        const response = Chatbot.getResponse(inputText);
+        // console.log(response)
+        setChatMessages([
+          ...newChatMessages, // spread operation: created a copy of the data
+          {
+            message: response,
+            sender: 'bot',
+            id: crypto.randomUUID()
+          }
+        ]
+        );
 
       }
 
