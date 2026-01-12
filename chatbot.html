@@ -55,7 +55,8 @@
     }
 
     function ChatMessages() {
-      const array = React.useState([{
+      // const array = React.useState([{
+      const [chatMessages, setChatMessages] = React.useState([{
         message: 'hello chatbot',
         sender: 'user',
         id: 'id1'
@@ -76,8 +77,10 @@
         id: 'id4'
       }
       ]);
-      const chatMessages = array[0]; //current data
-      const setChatMessages = array[1]; // returns a function which will be used to update the data aka 'updater functions'
+      // const chatMessages = array[0]; //current data
+      // const setChatMessages = array[1]; // returns a function which will be used to update the data aka 'updater functions'
+      // const [chatMessages, setChatMessages] = array;  // array destructuring // shortcut for above
+
 
       function sendMessage() {
         setChatMessages([
