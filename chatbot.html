@@ -71,25 +71,22 @@
       }];
 
       console.log(chatMessages);
-      const chatMessageComponenets = chatMessages.map((chatMessage) => {
-        return (
-          <ChatMessage
-            message={chatMessage.message}
-            sender={chatMessage.sender}
-          />
-        )
-      });
 
       return (
         <>
           <ChatInput />
-          {chatMessageComponenets}
+          {chatMessages.map((chatMessage) => {
+            return (
+              <ChatMessage
+                message={chatMessage.message}
+                sender={chatMessage.sender}
+              />
+            )
+          })
+          }
         </>
       );
     }
-    // const app = (
-
-    // );
 
     const container = document.querySelector(".js-container");
     ReactDOM.createRoot(container).render(<App />);
