@@ -18,11 +18,16 @@
         function OnButtonClick() {
             console.log("Clicked");
         }
+
+
         function App() {
+            const [count, setCount] = React.useState(0);
+
             return (
                 <>
                     <h1>Simple Counter App</h1>
-                    <button onClick={OnButtonClick} >Clicked 0 times</button>
+                    <button onClick={() => setCount(count + 1)} >Clicked {count} times</button>
+
                 </>
             );
         }
