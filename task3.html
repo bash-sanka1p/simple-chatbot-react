@@ -41,7 +41,13 @@
             );
         }
 
+        function ResetInputText({ setInputText }) {
+            setInputText('');
+        }
 
+        function SetExampleInputText({ setInputText }) {
+            setInputText("Alice");
+        }
 
         function App() {
             const [count, setCount] = React.useState(0);
@@ -57,11 +63,14 @@
                     <div>
                         <input
                             type="text"
-                            onChange={() => setInputText(event.target.value)}
+                            onChange={(event) => setInputText(event.target.value)}
                             placeholder='Type Something'
                         />
-                        <p>{inputText}</p>
-                    </div>
+                        <button onClick={() => ResetInputText({ setInputText })}>Reset</button>
+                        <button onClick={() => SetExampleInputText({ setInputText })}>Example</button>
+                        <p>Hello {inputText}</p>
+
+                    </div >
                 </>
             );
         }
