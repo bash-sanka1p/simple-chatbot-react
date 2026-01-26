@@ -33,6 +33,15 @@
           }
         ]
         setInputText('');
+        // Loading screen
+        setChatMessages([
+          ...newChatMessages, // spread operation: created a copy of the data
+          {
+            message: "Thinking...",
+            sender: 'bot',
+            id: crypto.randomUUID()
+          }
+        ]);
         // const response = Chatbot.getResponse(inputText);
         const response = await Chatbot.getResponseAsync(inputText);
         // console.log(response)
