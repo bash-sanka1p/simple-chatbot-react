@@ -17,13 +17,21 @@
 
     function ChatInput({ chatMessages, setChatMessages }) {
       const [inputText, setInputText] = React.useState('');
+      const [isLoading, setIsLoading] = React.useState(false);
 
       function saveInputText(event) {
         // console.log(event.target.value)
         setInputText(event.target.value);
       };
 
+
+
       async function sendMessage() {
+        if (isLoading || inputText === '') {
+          return
+        }
+        setIsLoading(true);
+
         const newChatMessages = [
           ...chatMessages, // spread operation: created a copy of the data
           {
@@ -54,7 +62,7 @@
           }
         ]
         );
-
+        setIsLoading(false);
       }
 
       function handleKeyDown(event) {
