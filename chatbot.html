@@ -200,9 +200,21 @@
     }
 
     function ChatMessages({ chatMessages }) {
+      const chatMessagesRef = React.useRef(null);
 
+      React.useEffect(() => {
+        // console.log('Updated');
+        // console.log(chatMessagesRef.current)
+        const containerElem = chatMessagesRef.current
+        if (containerElem) {
+          containerElem.scrollTop = containerElem.scrollHeight;
+        }
+      }, [chatMessages]);  //Dependency array.controls when useEffect runs
       return (
-        <div className="chat-messages-container">
+        <div
+          className="chat-messages-container"
+          ref={chatMessagesRef}
+        >
           {chatMessages.map((chatMessage) => {
             return (
               <ChatMessage
