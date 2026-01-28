@@ -21,19 +21,24 @@
     <script type="text/babel">
 
         function toggleButton({ isButtonOn, setIsButtonOn }) {
+            console.log("Current Value: ", isButtonOn)
             setIsButtonOn(isButtonOn ? false : true);
-            console.log(isButtonOn);
         }
 
         function Task4() {
             const [isButtonOn, setIsButtonOn] = React.useState(false);
+            React.useEffect(() => {
+                console.log("Updated Value: ", isButtonOn)
+                    , [isButtonOn]
+            }
+            )
             return (
                 <>
                     <button
                         className='toggle-button'
                         onClick={() => toggleButton({ isButtonOn, setIsButtonOn })}
                     >
-                        ON
+                        {isButtonOn ? 'ON' : 'OFF'}
                     </button >
                 </>
             );
