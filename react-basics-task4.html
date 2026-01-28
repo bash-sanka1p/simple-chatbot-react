@@ -20,14 +20,21 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
+        function toggleButton({ isButtonOn, setIsButtonOn }) {
+            setIsButtonOn(isButtonOn ? false : true);
+            console.log(isButtonOn);
+        }
+
         function Task4() {
+            const [isButtonOn, setIsButtonOn] = React.useState(false);
             return (
                 <>
                     <button
                         className='toggle-button'
+                        onClick={() => toggleButton({ isButtonOn, setIsButtonOn })}
                     >
                         ON
-                    </button>
+                    </button >
                 </>
             );
         }
