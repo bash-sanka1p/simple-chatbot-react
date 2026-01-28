@@ -49,8 +49,25 @@
             );
         }
 
+        function Challenge4() {
+
+            return (
+                <div>
+                    <p>Challenge 4 => </p>
+                </div>
+            )
+        }
+        function App() {
+            return (
+                <>
+                    <Task4 />
+                    <Challenge4 />
+                </>
+            )
+        }
+
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(<Task4 />);
+        ReactDOM.createRoot(container).render(<App />);
     </script>
 </body>
 
